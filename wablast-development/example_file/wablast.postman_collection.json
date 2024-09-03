@@ -1,0 +1,438 @@
+{
+	"info": {
+		"_postman_id": "e730b75a-7bf2-4b1a-804d-6734a67ae223",
+		"name": "wablast",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2543642",
+		"_collection_link": "https://gisthayo.postman.co/workspace/Testing2314~898b43cc-5c56-4598-8adc-bfe5293f7edd/collection/2543642-e730b75a-7bf2-4b1a-804d-6734a67ae223?action=share&source=collection_link&creator=2543642"
+	},
+	"item": [
+		{
+			"name": "Instance ID Browser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/instance/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"instance",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clear Group Message",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/clear-group-chat?instance=15d9e6802051c6aff88a1dfc9f1d893d",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"clear-group-chat"
+					],
+					"query": [
+						{
+							"key": "instance",
+							"value": "15d9e6802051c6aff88a1dfc9f1d893d",
+							"description": "Instance ID Browser"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Check Number V2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "instance",
+							"value": "90855852a16c86525cb9dc866baa5e4e",
+							"description": "Instance ID Browser",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"description": "Text file phone number",
+							"type": "file",
+							"src": "/wablast-development/example_file/phones_validation.txt"
+						},
+						{
+							"key": "start_interval",
+							"value": "60",
+							"description": "Start range interval check number",
+							"type": "text"
+						},
+						{
+							"key": "end_interval",
+							"value": "70",
+							"description": "End range interval check number",
+							"type": "text"
+						},
+						{
+							"key": "total_number_interval",
+							"value": "900",
+							"description": "Total limit check number",
+							"type": "text"
+						},
+						{
+							"key": "timeout",
+							"value": "300",
+							"description": "Timeout program to wait the web page",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/check-number-v2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"check-number-v2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Send Message V2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "instance",
+							"value": "27bc21ba4a406be3564267337a21536a",
+							"description": "Instance ID Browser",
+							"type": "text"
+						},
+						{
+							"key": "is_auto_reply",
+							"value": "true",
+							"description": "Give a value of true if you want to use the auto reply feature, give a value of false if you don't want to use it",
+							"type": "text"
+						},
+						{
+							"key": "auto_reply_check_interval",
+							"value": "5",
+							"description": "Check for reply messages after x number of messages",
+							"type": "text"
+						},
+						{
+							"key": "auto_reply_file",
+							"description": "Text file auto reply message",
+							"type": "file",
+							"src": "/wablast-development/example_file/auto_reply_message.txt"
+						},
+						{
+							"key": "phone_list_file",
+							"description": "Text file phone number",
+							"type": "file",
+							"src": "/wablast-development/example_file/phones_blast.txt"
+						},
+						{
+							"key": "start_interval",
+							"value": "10800",
+							"description": "Start range interval blast message",
+							"type": "text"
+						},
+						{
+							"key": "end_interval",
+							"value": "18000",
+							"description": "End range interval blast message",
+							"type": "text"
+						},
+						{
+							"key": "total_message_interval",
+							"value": "400",
+							"description": "Total limit blast message",
+							"type": "text"
+						},
+						{
+							"key": "dialogue_file",
+							"description": "Interaction chat text file",
+							"type": "file",
+							"src": "/wablast-development/example_file/dialogue_blast.txt"
+						},
+						{
+							"key": "dialogue_start_interval",
+							"value": "600",
+							"description": "Start range interval interaction chat",
+							"type": "text"
+						},
+						{
+							"key": "dialogue_end_interval",
+							"value": "900",
+							"description": "End range interval interaction chat",
+							"type": "text"
+						},
+						{
+							"key": "timeout",
+							"value": "300",
+							"description": "Timeout program to wait the web page",
+							"type": "text"
+						},
+						{
+							"key": "message_file",
+							"description": "File message blast",
+							"type": "file",
+							"src": "/wablast-development/example_file/message_blast.txt"
+						},
+						{
+							"key": "soceng_file",
+							"description": "File social engeneering",
+							"type": "file",
+							"src": "/wablast-development/example_file/soceng_blast.txt"
+						},
+						{
+							"key": "soceng_start_interval",
+							"value": "40",
+							"description": "Start range interval soceng",
+							"type": "text"
+						},
+						{
+							"key": "soceng_end_interval",
+							"value": "50",
+							"description": "End range interval soceng",
+							"type": "text"
+						},
+						{
+							"key": "opening_decorator",
+							"description": "File opening decorator",
+							"type": "file",
+							"src": "/wablast-development/example_file/1a_garisPembuka.txt"
+						},
+						{
+							"key": "opening_message",
+							"description": "File opening message",
+							"type": "file",
+							"src": "/wablast-development/example_file/2_kalimatPembuka.txt"
+						},
+						{
+							"key": "closing_message",
+							"description": "File closing message",
+							"type": "file",
+							"src": "/wablast-development/example_file/4_kalimatPenutup.txt"
+						},
+						{
+							"key": "closing_decorator",
+							"description": "File closing decorator",
+							"type": "file",
+							"src": "/wablast-development/example_file/5a_garisPenutup.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/bulk-send-v2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"bulk-send-v2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Send Message V3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "instance",
+							"value": "27bc21ba4a406be3564267337a21536a",
+							"description": "Instance ID Browser",
+							"type": "text"
+						},
+						{
+							"key": "is_auto_reply",
+							"value": "true",
+							"description": "Give a value of true if you want to use the auto reply feature, give a value of false if you don't want to use it",
+							"type": "text"
+						},
+						{
+							"key": "auto_reply_check_interval",
+							"value": "5",
+							"description": "Check for reply messages after x number of messages",
+							"type": "text"
+						},
+						{
+							"key": "auto_reply_file",
+							"description": "Text file auto reply message",
+							"type": "file",
+							"src": "/wablast-development/example_file/auto_reply_message.txt"
+						},
+						{
+							"key": "phone_list_file",
+							"description": "Text file phone number",
+							"type": "file",
+							"src": "/wablast-development/example_file/phones_blast.txt"
+						},
+						{
+							"key": "start_interval",
+							"value": "10800",
+							"description": "Start range interval blast message",
+							"type": "text"
+						},
+						{
+							"key": "end_interval",
+							"value": "18000",
+							"description": "End range interval blast message",
+							"type": "text"
+						},
+						{
+							"key": "total_message_interval",
+							"value": "400",
+							"description": "Total limit blast message",
+							"type": "text"
+						},
+						{
+							"key": "dialogue_file",
+							"description": "Interaction chat text file",
+							"type": "file",
+							"src": "/wablast-development/example_file/dialogue_blast.txt"
+						},
+						{
+							"key": "dialogue_start_interval",
+							"value": "600",
+							"description": "Start range interval interaction chat",
+							"type": "text"
+						},
+						{
+							"key": "dialogue_end_interval",
+							"value": "900",
+							"description": "End range interval interaction chat",
+							"type": "text"
+						},
+						{
+							"key": "timeout",
+							"value": "300",
+							"description": "Timeout program to wait the web page",
+							"type": "text"
+						},
+						{
+							"key": "message_file",
+							"description": "File message blast",
+							"type": "file",
+							"src": "/wablast-development/example_file/message_blast.txt"
+						},
+						{
+							"key": "soceng_file",
+							"description": "File social engeneering",
+							"type": "file",
+							"src": "/wablast-development/example_file/soceng_blast.txt"
+						},
+						{
+							"key": "soceng_start_interval",
+							"value": "40",
+							"description": "Start range interval soceng",
+							"type": "text"
+						},
+						{
+							"key": "soceng_end_interval",
+							"value": "50",
+							"description": "End range interval soceng",
+							"type": "text"
+						},
+						{
+							"key": "opening_decorator",
+							"description": "File opening decorator",
+							"type": "file",
+							"src": "/wablast-development/example_file/1a_garisPembuka.txt"
+						},
+						{
+							"key": "opening_message",
+							"description": "File opening message",
+							"type": "file",
+							"src": "/wablast-development/example_file/2_kalimatPembuka.txt"
+						},
+						{
+							"key": "closing_message",
+							"description": "File closing message",
+							"type": "file",
+							"src": "/wablast-development/example_file/4_kalimatPenutup.txt"
+						},
+						{
+							"key": "closing_decorator",
+							"description": "File closing decorator",
+							"type": "file",
+							"src": "/wablast-development/example_file/5a_garisPenutup.txt"
+						},
+						{
+							"key": "refresh_browser_count",
+							"value": "100",
+							"description": "Refresh browser every params refresh_browser_count or 100 messages by default",
+							"type": "text"
+						},
+						{
+							"key": "send_soceng_message",
+							"value": "true",
+							"description": "Send soceng message (true or false)",
+							"type": "text"
+						},
+						{
+							"key": "send_dialogue_message",
+							"value": "false",
+							"description": "Send dialogue message (true or false)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/bulk-send-v3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"bulk-send-v3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

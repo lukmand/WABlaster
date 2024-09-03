@@ -1,0 +1,940 @@
+2024-08-22 15:51:07 [INFO    ] [utils.download_chromedriver] Downloading chromedriver (127.0.6533.119)...
+2024-08-22 15:51:15 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 77, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 15:51:15 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 77, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:00:42 [INFO    ] [utils.download_chromedriver] Chromedriver is already installed.
+2024-08-22 16:00:46 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 77, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:00:46 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 77, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:02:22 [INFO    ] [utils.download_chromedriver] Chromedriver is already installed.
+2024-08-22 16:02:26 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 77, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:02:26 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 77, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:04:40 [INFO    ] [utils.download_chromedriver] Chromedriver is already installed.
+2024-08-22 16:04:42 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:42 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:42 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:42 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:42 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:42 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:42 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:42 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:42 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:42 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:42 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:42 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:43 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:43 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:43 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:43 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:43 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:43 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:43 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:43 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:04:45 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 78, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (chrome not reachable)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:04:45 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 78, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (chrome not reachable)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:05:38 [INFO    ] [utils.download_chromedriver] Chromedriver is already installed.
+2024-08-22 16:05:39 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:39 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:40 [WARNING ] [log.log_response] Not Found: /json/version
+2024-08-22 16:05:42 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 78, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (chrome not reachable)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:05:42 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 78, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (chrome not reachable)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:22:31 [INFO    ] [utils.download_chromedriver] Chromedriver is already installed.
+2024-08-22 16:22:35 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 78, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:22:35 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 78, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:28:17 [INFO    ] [utils.download_chromedriver] Chromedriver is already installed.
+2024-08-22 16:28:23 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 78, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (chrome not reachable)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:28:23 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 78, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (chrome not reachable)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:34:34 [INFO    ] [utils.download_chromedriver] Chromedriver is already installed.
+2024-08-22 16:34:46 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 92, in create_instance
+    browser.get(BASE_URL)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 363, in get
+    self.execute(Command.GET, {"url": url})
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: disconnected: Unable to receive message from renderer
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=127.0.6533.122)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00B7C90D]
+	(No symbol) [0x00B7C778]
+	(No symbol) [0x00B7B9E2]
+	(No symbol) [0x00B9B204]
+	(No symbol) [0x00C0CE37]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 16:34:46 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 92, in create_instance
+    browser.get(BASE_URL)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 363, in get
+    self.execute(Command.GET, {"url": url})
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: disconnected: Unable to receive message from renderer
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=127.0.6533.122)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00B7C90D]
+	(No symbol) [0x00B7C778]
+	(No symbol) [0x00B7B9E2]
+	(No symbol) [0x00B9B204]
+	(No symbol) [0x00C0CE37]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 20:49:53 [INFO    ] [utils.download_chromedriver] Chromedriver is already installed.
+2024-08-22 20:50:00 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 78, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (chrome not reachable)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 20:50:00 [ERROR   ] [log.log_response] Internal Server Error: /instance/
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WA Blaster\wablast-development\wablast\views.py", line 78, in create_instance
+    browser = webdriver.Chrome(options=chrome_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 212, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 299, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (chrome not reachable)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00C98923+23283]
+	(No symbol) [0x00C5E934]
+	(No symbol) [0x00B90733]
+	(No symbol) [0x00BC1075]
+	(No symbol) [0x00BBBAE9]
+	(No symbol) [0x00BFD9ED]
+	(No symbol) [0x00BFD21A]
+	(No symbol) [0x00BF41B6]
+	(No symbol) [0x00BC8017]
+	(No symbol) [0x00BC890D]
+	GetHandleVerifier [0x00D8A5F3+1013699]
+	GetHandleVerifier [0x00D93E4C+1052700]
+	GetHandleVerifier [0x00D8D4B4+1025668]
+	GetHandleVerifier [0x00CBEA2B+179195]
+	(No symbol) [0x00C66833]
+	(No symbol) [0x00C63198]
+	(No symbol) [0x00C63337]
+	(No symbol) [0x00C5B4BE]
+	BaseThreadInitThunk [0x768460C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A94+228]
+	RtlGetAppContainerNamedObjectPath [0x77EB7A64+180]
+
+2024-08-22 20:51:50 [INFO    ] [utils.download_chromedriver] Chromedriver is already installed.
