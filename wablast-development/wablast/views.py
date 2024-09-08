@@ -9,6 +9,7 @@ import subprocess
 import os
 import sys
 import traceback
+import datetime
 
 from django.conf import settings
 from django.contrib import messages
@@ -3446,6 +3447,7 @@ def bulk_send_v3(request):
         print('\nStart processing bulk send whatsapp...')
         logger.info('Start processing bulk send whatsapp.')
         # iterate the target number in array phone list
+        random.seed(int(datetime.datetime.now().timestamp()))
         for chunk in files:
             for index, row in chunk.iterrows():
                 phone = row['phone']
@@ -3539,7 +3541,6 @@ def bulk_send_v3(request):
                         print('----| Trying to stop the program')
                         sys.exit(1)
 
-                message = df_message[0][message_index]
 
                 # open chat URL to this number and wait for window/chats to load
                 for i in range(max_retries):
@@ -3603,6 +3604,14 @@ def bulk_send_v3(request):
 
                 # dynamic blast message
                 # get next message
+                loopevery = 20
+                if index % loopevery == 0:
+                    opening_decorator_idx = random.randint(1, df_opening_decorator.shape[0])
+                    opening_message = random.randint(1, df_opening_message.shape[0])
+                    message_index = random.randint(1, df_message.shape[0])
+                    closing_message = random.randint(1, df_closing_message.shape[0])
+                    closing_decorator = random.randint(1, df_closing_decorator.shape[0])
+                
                 if index + 1 > 1 and total_message > 0:
                     message_index = message_index + 1
                     opening_decorator_idx = opening_decorator_idx + 1
@@ -3628,6 +3637,7 @@ def bulk_send_v3(request):
 
                 opening_decorator = df_opening_decorator[0][opening_decorator_idx] if opening_decorator_file is not None else ''
                 opening_message = df_opening_message[0][opening_msg_idx] if opening_message_file is not None else ''
+                message = df_message[0][message_index] if message_file is not None else ''
                 closing_message = df_closing_message[0][closing_msg_idx] if closing_message_file is not None else ''
                 closing_decorator = df_closing_decorator[0][closing_decorator_idx] if closing_decorator_file is not None else ''
 
