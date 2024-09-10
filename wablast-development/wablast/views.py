@@ -3447,7 +3447,7 @@ def bulk_send_v3(request):
         print('\nStart processing bulk send whatsapp...')
         logger.info('Start processing bulk send whatsapp.')
         # iterate the target number in array phone list
-        random.seed(int(datetime.datetime.now().timestamp()))
+        random.seed(int(datetime.now().timestamp()))
         for chunk in files:
             for index, row in chunk.iterrows():
                 phone = row['phone']
