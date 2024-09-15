@@ -66,8 +66,8 @@ def create_instance(request):
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-blink-features=AutomationControlled")
     chrome_options.add_argument("--disable-dev-shm-usage")
-    # chrome_options.add_argument("--incognito")
-    # chrome_options.add_experimental_option("detach", True)
+    #chrome_options.add_argument("--incognito")
+    #chrome_options.add_experimental_option("detach", True)
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     chrome_options.add_experimental_option("useAutomationExtension", False)
 
@@ -202,7 +202,12 @@ def send_message(data):
         )
 
     for line in message.splitlines():
-        input_box.send_keys(line)
+        stoppage_line = random.randint(10, 20)
+        for idx, word in enumerate(line):
+            if ((idx+1) % stoppage_line) == 0:
+                time.sleep(5)
+            input_box.send_keys(word)
+        #input_box.send_keys(line)
         input_box.send_keys(Keys.SHIFT, Keys.ENTER)
 
     time.sleep(5)
@@ -3661,7 +3666,12 @@ def bulk_send_v3(request):
                         print(f'----| Trying write message to text input box')
                         # paste_text(browser, input_box, combined_message)
                         for line in combined_message.splitlines():
-                            input_box.send_keys(line)
+                            stoppage_line = random.randint(10, 20)
+                            for idx, word in enumerate(line):
+                                if ((idx+1) % stoppage_line) == 0:
+                                    time.sleep(5)
+                                input_box.send_keys(word)
+                            #input_box.send_keys(line)
                             time.sleep(1)
                             input_box.send_keys(Keys.SHIFT, Keys.ENTER)
 
@@ -4201,7 +4211,12 @@ def dialogue_v3(browser, file_path, start_interval, end_interval, timeout, event
                 logger.info(f'Trying write message to text input box')
                 print(f'----| Trying write message to text input box')
                 for line in message.splitlines():
-                    input_box.send_keys(line)
+                    stoppage_line = random.randint(10, 20)
+                    for idx, word in enumerate(line):
+                        if ((idx+1) % stoppage_line) == 0:
+                            time.sleep(5)
+                            input_box.send_keys(word)
+                    #input_box.send_keys(line)
                     time.sleep(1)
                     input_box.send_keys(Keys.SHIFT, Keys.ENTER)
 
