@@ -1585,7 +1585,7 @@ def reply_message(browser, auto_reply=False, input_file=None):
         # scroll chat to top
         scroll_chat(browser)
         # get reply message
-        data_reply = get_data_reply_message(browser)
+        data_reply, response = get_data_reply_message(browser)
 
         success_get_reply = f'Successfully get data reply message from {phone}'
         report_time_stop = tools.get_datetime('%H:%M:%S')
@@ -1619,7 +1619,7 @@ def reply_message(browser, auto_reply=False, input_file=None):
         thread.start()
         thread.join()  # Wait for the thread to finish
 
-        if auto_reply and input_file:
+        if auto_reply and input_file and response:
             try:
                 # delete array data in data_report except first data
                 data_report = data_report[:1]
@@ -1743,6 +1743,7 @@ def get_data_reply_message(browser):
     logger.info('Trying to get data reply message')
     print('\nTrying to get data reply message')
     chat_list = browser.find_elements(By.CSS_SELECTOR, 'div#main div.copyable-area div.message-in')
+    response = False
     for chat in chat_list:
         message_obj = dict()
         timestamp = None
@@ -1851,6 +1852,9 @@ def get_data_reply_message(browser):
 
         if text_message:
             message_obj['message'] = text_message
+            if text_message.lower() in ['yes', 'ya', 'setuju', 'ok', 'boleh']:
+                response = True
+                logger.info('Message does not include response format. Will not send reply.')
 
         if attach_file:
             message_obj['filename'] = attach_file
@@ -1869,7 +1873,7 @@ def get_data_reply_message(browser):
 
         list_message.append(message_obj)
 
-    return list_message
+    return list_message, response
 
 def scroll_chat(browser):
     print('Start scroll chat')
@@ -2490,14 +2494,20 @@ def bulk_send_v2(request):
         total_row_closing_message = len(df_closing_message) if df_closing_message is not None else 0
         total_row_closing_decorator = len(df_closing_decorator) if df_closing_decorator is not None else 0
 
-        check_reply_interval = data.get('auto_reply_check_interval', '')
-        check_reply_interval = check_reply_interval.strip()
+        check_reply_interval_min = data.get('auto_reply_check_interval', '')
+        check_reply_interval_max = data.get('auto_reply_check_interval_max', '')
+        check_reply_interval_min = check_reply_interval.strip()
+        check_reply_interval_max = check_reply_interval_max.strip()
         # add a counter to check reply message
         message_counter = 0
         # if check_reply_interval is not empty, convert to integer
-        if check_reply_interval:
-            check_reply_interval = int(check_reply_interval)
+        if check_reply_interval_min:
+            check_reply_interval_min = int(check_reply_interval_min)
+        if check_reply_interval_min:
+            check_reply_interval_max = int(check_reply_interval_max)
 
+        check_reply_interval = random.randint(check_reply_interval_min, check_reply_interval_max)
+        
         # timeout counter for blast message
         timeout_counter = 0
 
