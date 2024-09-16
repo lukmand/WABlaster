@@ -203,9 +203,10 @@ def send_message(data):
 
     for line in message.splitlines():
         stoppage_line = random.randint(10, 20)
+        logger.info(f'Send Message pause every {stoppage_line} character')
         for idx, word in enumerate(line):
             if ((idx+1) % stoppage_line) == 0:
-                time.sleep(5)
+                time.sleep(random.randint(5, 10))
             input_box.send_keys(word)
         #input_box.send_keys(line)
         input_box.send_keys(Keys.SHIFT, Keys.ENTER)
@@ -3452,7 +3453,9 @@ def bulk_send_v3(request):
         print('\nStart processing bulk send whatsapp...')
         logger.info('Start processing bulk send whatsapp.')
         # iterate the target number in array phone list
-        random.seed(int(datetime.now().timestamp()))
+        random_seed = int(datetime.now().timestamp())
+        random.seed(random_seed)
+        logger.info(f'Using Random Seed {random_seed}')
         for chunk in files:
             for index, row in chunk.iterrows():
                 phone = row['phone']
@@ -3667,9 +3670,10 @@ def bulk_send_v3(request):
                         # paste_text(browser, input_box, combined_message)
                         for line in combined_message.splitlines():
                             stoppage_line = random.randint(10, 20)
+                            logger.info(f'Pause every {stoppage_line} character')
                             for idx, word in enumerate(line):
                                 if ((idx+1) % stoppage_line) == 0:
-                                    time.sleep(5)
+                                    time.sleep(random.randint(5, 10))
                                 input_box.send_keys(word)
                             #input_box.send_keys(line)
                             time.sleep(1)
@@ -4212,10 +4216,11 @@ def dialogue_v3(browser, file_path, start_interval, end_interval, timeout, event
                 print(f'----| Trying write message to text input box')
                 for line in message.splitlines():
                     stoppage_line = random.randint(10, 20)
+                    logger.info(f'Dialogue Pause every {stoppage_line}')
                     for idx, word in enumerate(line):
                         if ((idx+1) % stoppage_line) == 0:
-                            time.sleep(5)
-                            input_box.send_keys(word)
+                            time.sleep(random.randint(5, 10))
+                        input_box.send_keys(word)
                     #input_box.send_keys(line)
                     time.sleep(1)
                     input_box.send_keys(Keys.SHIFT, Keys.ENTER)
