@@ -296,6 +296,12 @@
 							"type": "text"
 						},
 						{
+							"key": "auto_reply_check_interval_max",
+							"value": "10",
+							"description": "Check for reply messages after maximum x number of messages",
+							"type": "text"
+						},
+						{
 							"key": "auto_reply_file",
 							"description": "Text file auto reply message",
 							"type": "file",
