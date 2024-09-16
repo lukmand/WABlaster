@@ -1619,6 +1619,7 @@ def reply_message(browser, auto_reply=False, input_file=None):
         thread.start()
         thread.join()  # Wait for the thread to finish
 
+        random_message=''
         if auto_reply and input_file and response:
             try:
                 # delete array data in data_report except first data
