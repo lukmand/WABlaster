@@ -1855,8 +1855,9 @@ def get_data_reply_message(browser):
             message_obj['message'] = text_message
             if text_message.lower() in ['yes', 'ya', 'setuju', 'ok', 'boleh']:
                 response = True
+                logger.info(f'Message match response format. Trying to send message.')
             else:
-                logger.info('Message does not include response format. Will not send reply.')
+                logger.info(f'Message does not include response format. Will not send reply.')
 
         if attach_file:
             message_obj['filename'] = attach_file
