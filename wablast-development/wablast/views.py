@@ -1461,7 +1461,7 @@ def auto_reply_message(browser, input_data, auto_reply_conf=True, type_log_msg='
             ))
             time.sleep(6)
 
-            reply_message(browser, auto_reply=auto_reply_conf, input_data)
+            reply_message(browser, auto_reply=auto_reply_conf, input_data=input_data)
         except Exception as e:
             logger.error('Failed to get data reply message. Error: {e}'.format(e=e))
             logger.error(traceback.format_exc())
@@ -1627,7 +1627,7 @@ def reply_message(browser, auto_reply, input_data):
         thread.join()  # Wait for the thread to finish
 
         random_message = ['']
-        if auto_reply and input_file and response:
+        if auto_reply and not input_data.empty and  response:
             try:
                 # delete array data in data_report except first data
                 data_report = data_report[:1]
@@ -1746,7 +1746,7 @@ def reply_message(browser, auto_reply, input_data):
         time.sleep(random.randint(5, 8))
 
         # clear chat
-        clear_chat(browser)
+        # clear_chat(browser)
         data_report.clear()
 
 def get_data_reply_message(browser):
@@ -3439,7 +3439,7 @@ def bulk_send_v3(request):
         # Check reply message before start blast
         logger.info('Trying to read input file for auto reply')
         print('Trying to read input file for auto reply')
-        input_data = pd.read_csv(input_file, header=None, names=['message']) if auto_reply_file else None
+        input_data = pd.read_csv(auto_reply_file, header=None, names=['message']) if auto_reply_file else None
         
         auto_reply_message(browser, input_data, auto_reply_conf=is_auto_reply, type_log_msg='before start blast')
 
