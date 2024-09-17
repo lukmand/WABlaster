@@ -1488,6 +1488,8 @@ def reply_message(browser, auto_reply, input_file):
         logger.info('Trying to read input file for auto reply')
         print('Trying to read input file for auto reply')
         input_data = pd.read_csv(input_file, header=None, names=['message'])
+        print(input_data)
+        print('INPUT DATA BERHASIL')
 
     print('INI FILE INPUT UTK REPLY MESSAGE')
     print(input_data)
