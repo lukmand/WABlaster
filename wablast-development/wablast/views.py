@@ -1441,7 +1441,7 @@ def get_reply_message(data):
         status=200
     )
 
-def auto_reply_message(browser, auto_reply_file, auto_reply_conf=True, type_log_msg=''):
+def auto_reply_message(browser, auto_reply_file, auto_reply_conf=True, type_log_msg='', second_iter):
     if auto_reply_conf:
         print(f'\nStart checking reply message {type_log_msg}')
         logger.info(f'Start checking reply message {type_log_msg}')
@@ -1461,7 +1461,7 @@ def auto_reply_message(browser, auto_reply_file, auto_reply_conf=True, type_log_
             ))
             time.sleep(6)
 
-            reply_message(browser, auto_reply=auto_reply_conf, input_file=auto_reply_file)
+            reply_message(browser, auto_reply=auto_reply_conf, input_file=auto_reply_file, second_iter)
         except Exception as e:
             logger.error('Failed to get data reply message. Error: {e}'.format(e=e))
             logger.error(traceback.format_exc())
@@ -1475,7 +1475,7 @@ def auto_reply_message(browser, auto_reply_file, auto_reply_conf=True, type_log_
         print(f'\nFinish checking reply message {type_log_msg}')
         logger.info(f'Finish checking reply message {type_log_msg}')
 
-def reply_message(browser, auto_reply, input_file):
+def reply_message(browser, auto_reply, input_file, second_iter):
     lang_element = browser.find_element(By.CSS_SELECTOR, 'html').get_attribute('lang')
     logger.info(f'\nThis WhatsApp web use language: {lang_element}')
     print(f'This WhatsApp web use language: {lang_element}')
@@ -1483,17 +1483,16 @@ def reply_message(browser, auto_reply, input_file):
     unread_notif_chat = Selectors.UNREAD_CONVERSATIONS_ID if lang_element == 'id' else Selectors.UNREAD_CONVERSATIONS
     group_element = Selectors.GROUP_INFO_HEADER_ID if lang_element == 'id' else Selectors.GROUP_INFO_HEADER
 
-    input_data = pd.DataFrame()
+    #input_data = pd.DataFrame()
     print('INI INPUT FILE')
     print(input_file)
-    if input_file:
+    if input_file and second_iter:
         # read input file
         logger.info('Trying to read input file for auto reply')
         print('Trying to read input file for auto reply')
-        while input_data.empty:
-            input_data = pd.read_csv(input_file, header=None, names=['message'])
-        print(input_data)
-        print('INPUT DATA BERHASIL')
+        input_data = pd.read_csv(input_file, header=None, names=['message'])
+        #print(input_data)
+        #print('INPUT DATA BERHASIL')
 
     print('INI FILE INPUT UTK REPLY MESSAGE')
     print(input_data)
@@ -2510,7 +2509,7 @@ def bulk_send_v2(request):
 
         check_reply_interval_min = data.get('auto_reply_check_interval', '')
         check_reply_interval_max = data.get('auto_reply_check_interval_max', '')
-        check_reply_interval_min = check_reply_interval.strip()
+        check_reply_interval_min = check_reply_interval_min.strip()
         check_reply_interval_max = check_reply_interval_max.strip()
         # add a counter to check reply message
         message_counter = 0
@@ -3438,7 +3437,7 @@ def bulk_send_v3(request):
             auto_reply_file = None
 
         # Check reply message before start blast
-        auto_reply_message(browser, auto_reply_file, auto_reply_conf=is_auto_reply, type_log_msg='before start blast')
+        auto_reply_message(browser, auto_reply_file, auto_reply_conf=is_auto_reply, type_log_msg='before start blast', True)
 
         df_message = pd.read_csv(message_file, header=None)
         df_opening_decorator = pd.read_csv(opening_decorator_file, header=None) if opening_decorator_file else None
@@ -3838,7 +3837,7 @@ def bulk_send_v3(request):
                     message_counter += 1
                     if check_reply_interval and message_counter % check_reply_interval == 0:
                         # start checking reply message in interval message
-                        auto_reply_message(browser, auto_reply_file, auto_reply_conf=is_auto_reply, type_log_msg='in interval message')
+                        auto_reply_message(browser, auto_reply_file, auto_reply_conf=is_auto_reply, type_log_msg='in interval message', False)
 
                 # set interval time after reaching of total messages
                 if index % total_message == 0 and index > 0:
@@ -3921,7 +3920,7 @@ def bulk_send_v3(request):
 
                 # del is_success, threads
 
-        auto_reply_message(browser, auto_reply_file, auto_reply_conf=is_auto_reply, type_log_msg='after blast')
+        auto_reply_message(browser, auto_reply_file, auto_reply_conf=is_auto_reply, type_log_msg='after blast', False)
 
         # Upload report to server
         thread = Thread(target=sync_report)
