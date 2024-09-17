@@ -1855,9 +1855,9 @@ def get_data_reply_message(browser):
             message_obj['message'] = text_message
             if text_message.lower() in ['yes', 'ya', 'setuju', 'ok', 'boleh']:
                 response = True
-                logger.info(f'Message match response format. Trying to send message.')
+                logger.info('Message match with response format. Will try to send reply.')
             else:
-                logger.info(f'Message does not include response format. Will not send reply.')
+                logger.info('Message does not match response format. Will not send reply.')
 
         if attach_file:
             message_obj['filename'] = attach_file
@@ -3440,13 +3440,19 @@ def bulk_send_v3(request):
         total_row_closing_message = len(df_closing_message) if df_closing_message is not None else 0
         total_row_closing_decorator = len(df_closing_decorator) if df_closing_decorator is not None else 0
 
-        check_reply_interval = data.get('auto_reply_check_interval', '')
-        check_reply_interval = check_reply_interval.strip()
+        check_reply_interval_min = data.get('auto_reply_check_interval', '')
+        check_reply_interval_max = data.get('auto_reply_check_interval_max', '')
+        check_reply_interval_min = check_reply_interval.strip()
+        check_reply_interval_max = check_reply_interval_max.strip()
         # add a counter to check reply message
         message_counter = 0
         # if check_reply_interval is not empty, convert to integer
-        if check_reply_interval:
-            check_reply_interval = int(check_reply_interval)
+        if check_reply_interval_min:
+            check_reply_interval_min = int(check_reply_interval_min)
+        if check_reply_interval_min:
+            check_reply_interval_max = int(check_reply_interval_max)
+
+        check_reply_interval = random.randint(check_reply_interval_min, check_reply_interval_max)
 
         # timeout counter for blast message
         timeout_counter = 0
