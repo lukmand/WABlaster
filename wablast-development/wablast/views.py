@@ -3447,7 +3447,7 @@ def bulk_send_v3(request):
 
         check_reply_interval_min = data.get('auto_reply_check_interval', '')
         check_reply_interval_max = data.get('auto_reply_check_interval_max', '')
-        check_reply_interval_min = check_reply_interval.strip()
+        check_reply_interval_min = check_reply_interval_min.strip()
         check_reply_interval_max = check_reply_interval_max.strip()
         # add a counter to check reply message
         message_counter = 0
