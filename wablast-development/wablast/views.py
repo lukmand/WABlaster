@@ -3877,7 +3877,7 @@ def bulk_send_v3(request):
                         logger.info('Start thread social engineering')
                         threads.start()
                     else:
-                        task_start = int(os.getenv('WAIT_NEXT_TASK_START', '60'))
+                        task_start = int(os.getenv('WAIT_NEXT_TASK_START', '120'))
                         task_end = int(os.getenv('WAIT_NEXT_TASK_END', '225'))
                         random_number = random.randint(task_start, task_end)
                         print(f'----| Rest in {random_number}s')
