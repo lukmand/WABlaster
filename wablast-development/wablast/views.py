@@ -1475,7 +1475,7 @@ def auto_reply_message(browser, auto_reply_file, auto_reply_conf=True, type_log_
         print(f'\nFinish checking reply message {type_log_msg}')
         logger.info(f'Finish checking reply message {type_log_msg}')
 
-def reply_message(browser, auto_reply=False, input_file=None):
+def reply_message(browser, auto_reply, input_file):
     lang_element = browser.find_element(By.CSS_SELECTOR, 'html').get_attribute('lang')
     logger.info(f'\nThis WhatsApp web use language: {lang_element}')
     print(f'This WhatsApp web use language: {lang_element}')
