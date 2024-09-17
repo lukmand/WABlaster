@@ -1489,6 +1489,8 @@ def reply_message(browser, auto_reply=False, input_file=None):
         print('Trying to read input file for auto reply')
         input_data = pd.read_csv(input_file, header=None, names=['message'])
 
+    print(input_data)
+    
     conversations = browser.find_elements(By.CSS_SELECTOR, unread_notif_chat)
     logger.info(f'Total unread conversations: {len(conversations)}')
     for i in range(len(conversations)):
