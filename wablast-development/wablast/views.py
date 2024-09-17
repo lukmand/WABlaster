@@ -1489,8 +1489,8 @@ def reply_message(browser, auto_reply=False, input_file=None):
         print('Trying to read input file for auto reply')
         input_data = pd.read_csv(input_file, header=None, names=['message'])
 
+    print('INI FILE INPUT UTK REPLY MESSAGE')
     print(input_data)
-    
     conversations = browser.find_elements(By.CSS_SELECTOR, unread_notif_chat)
     logger.info(f'Total unread conversations: {len(conversations)}')
     for i in range(len(conversations)):
@@ -1630,9 +1630,12 @@ def reply_message(browser, auto_reply=False, input_file=None):
 
                 print(f'Trying to send auto reply to {phone}')
                 logger.info(f'Trying to send auto reply to {phone}')
-
+                print('INI INPUT DATA SAAT SESUAI RESPON')
+                print(input_data)
                 logger.info('Trying to get random message')
                 data_message = input_data['message']
+                print('INI DATA MESSAGE')
+                print(data_message)
                 random_message = random.choice(data_message)
                 logger.info(f'Auto reply message: {random_message}')
                 print(f'Auto reply message: {random_message}')
