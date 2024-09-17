@@ -1483,11 +1483,15 @@ def reply_message(browser, auto_reply, input_file):
     unread_notif_chat = Selectors.UNREAD_CONVERSATIONS_ID if lang_element == 'id' else Selectors.UNREAD_CONVERSATIONS
     group_element = Selectors.GROUP_INFO_HEADER_ID if lang_element == 'id' else Selectors.GROUP_INFO_HEADER
 
+    input_data = pd.DataFrame()
+    print('INI INPUT FILE')
+    print(input_file)
     if input_file:
         # read input file
         logger.info('Trying to read input file for auto reply')
         print('Trying to read input file for auto reply')
-        input_data = pd.read_csv(input_file, header=None, names=['message'])
+        while input_data.empty:
+            input_data = pd.read_csv(input_file, header=None, names=['message'])
         print(input_data)
         print('INPUT DATA BERHASIL')
 
