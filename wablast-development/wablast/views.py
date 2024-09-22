@@ -3239,7 +3239,7 @@ def auto_reply_message_v2(browser, input_data, dict_of_phone, auto_reply_conf, t
                         logger.info(f'Tryping to open Chat box from {key}')
                         browser.get(CHAT_URL.format(phone=key))
                         # scroll chat to top
-                        scroll_chat(browser)
+                        # scroll_chat(browser)
                         # get reply message
                         data_reply, response = get_data_reply_message(browser)
                         
@@ -3413,7 +3413,7 @@ def auto_reply_message_v2(browser, input_data, dict_of_phone, auto_reply_conf, t
                         # clear chat
                         # clear_chat(browser)
                         data_report.clear()
-                    except:
+                    except Exception as e:
                         logger.error('Failed to get unread message. Error: {e}'.format(e=e))
 
         except Exception as e:
