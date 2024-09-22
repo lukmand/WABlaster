@@ -3239,6 +3239,7 @@ def auto_reply_message_v2(browser, input_data, dict_of_phone, auto_reply_conf, t
                         logger.info(f'Trying to get unread message from {key}')
                         logger.info(f'Tryping to open Chat box from {key}')
                         browser.get(CHAT_URL.format(phone=key))
+                        time.sleep(10)
                         # scroll chat to top
                         # scroll_chat(browser)
                         # get reply message
@@ -3285,8 +3286,8 @@ def auto_reply_message_v2(browser, input_data, dict_of_phone, auto_reply_conf, t
                                 data_report = data_report[:1]
                                 time_start_autoreply = tools.get_datetime('%H:%M:%S')
 
-                                print(f'Trying to send auto reply to {phone}')
-                                logger.info(f'Trying to send auto reply to {phone}')
+                                print(f'Trying to send auto reply to {key}')
+                                logger.info(f'Trying to send auto reply to {key}')
                                 print('INI INPUT DATA SAAT SESUAI RESPON')
                                 print(input_data)
                                 logger.info('Trying to get random message')
