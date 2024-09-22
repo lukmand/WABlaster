@@ -1767,6 +1767,7 @@ def get_data_reply_message(browser):
     logger.info('Trying to get data reply message')
     print('\nTrying to get data reply message')
     chat_list = browser.find_elements(By.CSS_SELECTOR, 'div#main div.copyable-area div.message-in')
+    print(chat_list)
     response = False
     for chat in chat_list:
         message_obj = dict()
@@ -3242,7 +3243,9 @@ def auto_reply_message_v2(browser, input_data, dict_of_phone, auto_reply_conf, t
                         # scroll_chat(browser)
                         # get reply message
                         data_reply, response = get_data_reply_message(browser)
-                        
+                        print(f'After get data reply from {key}')
+                        print(data_reply)
+                        print(response)
                         success_get_reply = f'Successfully get data reply message from {key}'
                         report_time_stop = tools.get_datetime('%H:%M:%S')
                         data_report.extend([report_time_start, report_time_stop, key, 'Success', success_get_reply, data_reply])
