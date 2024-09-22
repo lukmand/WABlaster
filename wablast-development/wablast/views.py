@@ -208,7 +208,7 @@ def send_message(data):
             if ((idx+1) % stoppage_line) == 0:
                 time.sleep(random.randint(5, 10))
             input_box.send_keys(word)
-            time.sleep(1)
+            time.sleep(.3)
         #input_box.send_keys(line)
         input_box.send_keys(Keys.SHIFT, Keys.ENTER)
 
@@ -1668,7 +1668,7 @@ def reply_message(browser, auto_reply, input_data):
                         if ((idx+1) % stoppage_line) == 0:
                             time.sleep(random.randint(5, 10))
                         input_box.send_keys(word)
-                        time.sleep(1)
+                        time.sleep(.3)
                     time.sleep(1)
                     input_box.send_keys(Keys.SHIFT, Keys.ENTER)
 
@@ -3315,7 +3315,7 @@ def auto_reply_message_v2(browser, input_data, dict_of_phone, auto_reply_conf, t
                                         if ((idx+1) % stoppage_line) == 0:
                                             time.sleep(random.randint(5, 10))
                                         input_box.send_keys(word)
-                                        time.sleep(1)
+                                        time.sleep(.3)
                                     #input_box.send_keys(line)
                                     time.sleep(1)
                                     input_box.send_keys(Keys.SHIFT, Keys.ENTER)
@@ -3946,7 +3946,7 @@ def bulk_send_v3(request):
                                 if ((idx+1) % stoppage_line) == 0:
                                     time.sleep(random.randint(5, 10))
                                 input_box.send_keys(word)
-                                time.sleep(1)
+                                time.sleep(.3)
                             #input_box.send_keys(line)
                             time.sleep(1)
                             input_box.send_keys(Keys.SHIFT, Keys.ENTER)
@@ -4496,7 +4496,7 @@ def dialogue_v3(browser, file_path, start_interval, end_interval, timeout, event
                         if ((idx+1) % stoppage_line) == 0:
                             time.sleep(random.randint(5, 10))
                         input_box.send_keys(word)
-                        time.sleep(1)
+                        time.sleep(.3)
                     #input_box.send_keys(line)
                     time.sleep(1)
                     input_box.send_keys(Keys.SHIFT, Keys.ENTER)
