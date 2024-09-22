@@ -208,7 +208,6 @@ def send_message(data):
             if ((idx+1) % stoppage_line) == 0:
                 time.sleep(random.randint(5, 10))
             input_box.send_keys(word)
-            time.sleep(1)
         #input_box.send_keys(line)
         input_box.send_keys(Keys.SHIFT, Keys.ENTER)
 
@@ -1658,20 +1657,8 @@ def reply_message(browser, auto_reply, input_data):
                 input_box = WebDriverWait(browser, 120).until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, Selectors.MESSAGE_BOX))
                 )
-                
                 # input_box.send_keys(random_message)
-                # paste_text(browser, input_box, random_message)
-                for line in random_message.splitlines():
-                    stoppage_line = random.randint(10, 20)
-                    logger.info(f'Pause every {stoppage_line} character')
-                    for idx, word in enumerate(line):
-                        if ((idx+1) % stoppage_line) == 0:
-                            time.sleep(random.randint(5, 10))
-                        input_box.send_keys(word)
-                        time.sleep(1)
-                    time.sleep(1)
-                    input_box.send_keys(Keys.SHIFT, Keys.ENTER)
-
+                paste_text(browser, input_box, random_message)
                 logger.info(f'Trying to write message auto reply')
                 print(f'Trying to write message auto reply')
             except TimeoutException:
@@ -1876,7 +1863,7 @@ def get_data_reply_message(browser):
 
         if text_message:
             message_obj['message'] = text_message
-            if text_message.lower().strip().replace('\n', '') in ['yes', 'ya', 'setuju', 'ok', 'boleh']:
+            if text_message.lower() in ['yes', 'ya', 'setuju', 'ok', 'boleh']:
                 response = True
                 logger.info('Message match with response format. Will try to send reply.')
             else:
@@ -3206,230 +3193,6 @@ def dialogue_v2(browser, file_path, start_interval, end_interval, timeout, event
     print(f'\nProcessing {chat_type} is done\n')
     logger.info(f'Processing {chat_type} is done')
 
-def auto_reply_message_v2(browser, input_data, dict_of_phone, auto_reply_conf=is_auto_reply, type_log_msg='in interval message'):
-
-    if auto_reply_conf:
-    
-        print(f'\nStart checking reply message {type_log_msg}')
-        logger.info(f'Start checking reply message {type_log_msg}')
-        # Check reply message
-        handles = len(browser.window_handles)
-        if handles > 1:
-            Browser.close_tab(browser)
-
-        Browser.new_tab(browser)
-        browser.get(BASE_URL)
-        time.sleep(6)
-        try:
-            logger.info('Trying to make sure the search bar in home is available')
-            print('Trying to make sure the search bar in home is available')
-            WebDriverWait(browser, 90).until(lambda driver: (
-                element_exists(browser, By.CSS_SELECTOR, Selectors.SEARCH_BAR)
-            ))
-            time.sleep(6)
-          
-            print(dict_of_phone)
-            for key, value in dict_of_phone.items():
-                data_report = [tools.get_datetime('%Y-%m-%d')]
-                report_time_start = tools.get_datetime('%H:%M:%S')
-                if value == 'unread':
-                    # Trying to get Chat URL
-                    try:
-                        logger.info(f'Trying to get unread message from {key}')
-                        logger.info(f'Tryping to open Chat box from {key}')
-                        browser.get(CHAT_URL.format(phone=key))
-                        # scroll chat to top
-                        scroll_chat(browser)
-                        # get reply message
-                        data_reply, response = get_data_reply_message(browser)
-                        
-                        success_get_reply = f'Successfully get data reply message from {key}'
-                        report_time_stop = tools.get_datetime('%H:%M:%S')
-                        data_report.extend([report_time_start, report_time_stop, key, 'Success', success_get_reply, data_reply])
-
-                        # write success get data reply message to excel
-                        file_success = f'./report/reply_message/reply_message_{current_date}.xlsx'
-                        insert_excel(data_report, file_success)
-                        logger.info('Successfully write success get reply message to excel')
-                        print('Successfully write success get reply message to excel')
-
-                        # write data reply message to txt file
-                        file_reply_txt = f'./report/reply_message/reply_message_{current_date}.txt'
-                        file_txt_folder = Folder.is_exists(file_reply_txt)
-                        if not file_txt_folder:
-                            logger.info('Create folder for reply message')
-                            print('Create folder for reply message')
-                            Folder.mkdir(file_reply_txt)
-
-                        report_file_reply_txt = open(file_reply_txt, 'a')  # append mode
-                        report_file_reply_txt.write(f'{data_report[0]} | {report_time_start} | {report_time_stop} | {HOST_NAME} - {IP_ADDRESS} | {key} | Success | {success_get_reply} | {data_reply}\n')
-                        report_file_reply_txt.close()
-                        logger.info('Successfully write data reply message to txt file')
-                        print('Successfully write data reply message to txt file')
-
-                        logger.info(success_get_reply)
-                        print(success_get_reply)
-
-                        # Upload file report to server
-                        thread = Thread(target=sync_report)
-                        thread.start()
-                        thread.join()  # Wait for the thread to finish
-
-                        random_message = ['']
-                        if auto_reply_conf and not input_data.empty and response:
-                            try:
-                                # delete array data in data_report except first data
-                                data_report = data_report[:1]
-                                time_start_autoreply = tools.get_datetime('%H:%M:%S')
-
-                                print(f'Trying to send auto reply to {phone}')
-                                logger.info(f'Trying to send auto reply to {phone}')
-                                print('INI INPUT DATA SAAT SESUAI RESPON')
-                                print(input_data)
-                                logger.info('Trying to get random message')
-                                data_message = input_data['message']
-                                print('INI DATA MESSAGE')
-                                print(data_message)
-                                random_message = random.choice(data_message)
-                                logger.info(f'Auto reply message: {random_message}')
-                                print(f'Auto reply message: {random_message}')
-                            except Exception as e:
-                                logger.error('Error when program to get random message. Error: {e}'.format(e=e))
-                                logger.error(traceback.format_exc())
-                                print('Error when program to get random message')
-
-                            is_success = True
-                            try:
-                                # find text input box
-                                logger.info('Trying to find input box')
-                                print('Trying to find input box')
-                                input_box = WebDriverWait(browser, 120).until(
-                                    EC.presence_of_element_located((By.CSS_SELECTOR, Selectors.MESSAGE_BOX))
-                                )
-                                # input_box.send_keys(random_message)
-                                # paste_text(browser, input_box, random_message)
-                                for line in random_message.splitlines():
-                                    stoppage_line = random.randint(10, 20)
-                                    logger.info(f'Pause every {stoppage_line} character')
-                                    for idx, word in enumerate(line):
-                                        if ((idx+1) % stoppage_line) == 0:
-                                            time.sleep(random.randint(5, 10))
-                                        input_box.send_keys(word)
-                                        time.sleep(1)
-                                    #input_box.send_keys(line)
-                                    time.sleep(1)
-                                    input_box.send_keys(Keys.SHIFT, Keys.ENTER)
-
-                                time.sleep(10)
-                                logger.info(f'Trying to write message auto reply')
-                                print(f'Trying to write message auto reply')
-                            except TimeoutException:
-                                is_success = False
-                                logger.error('Timeout error to find input box.')
-                                logger.error(traceback.format_exc())
-                                print('Timeout error to find input box')
-                            except NoSuchElementException:
-                                is_success = False
-                                logger.error('Error no such element input box')
-                                logger.error(traceback.format_exc())
-                                print('Error no such element input box')
-
-                            if not is_success:
-                                failed_send_autoreply = f'Failed to send auto reply message to {key}.'
-                                logger.error(failed_send_autoreply)
-                                print(failed_send_autoreply)
-                                data_report.extend([report_time_start, report_time_stop, key, 'Error', failed_send_autoreply, ''])
-
-                                # write failed send auto reply message to excel
-                                fail_auto_reply_file = f'./report/reply_message/failed/send_auto_reply_message_{current_date}.xlsx'
-                                insert_excel(data_report, fail_auto_reply_file)
-                                logger.info('Successfully write failed send auto reply message to excel')
-                                print('Successfully write failed send auto reply message to excel')
-
-                                # write data auto reply message to txt file
-                                auto_reply_report = f'./report/reply_message/failed/send_auto_reply_message_{current_date}.txt'
-                                auto_reply_report_folder = Folder.is_exists(auto_reply_report)
-                                if not auto_reply_report_folder:
-                                    logger.info('Create folder for failed send auto reply message')
-                                    print('Create folder for failed send auto reply message')
-                                    Folder.mkdir(auto_reply_report)
-
-                                auto_reply_report = open(auto_reply_report, 'a')  # append mode
-                                auto_reply_report.write(f'{data_report[0]} | {time_start_autoreply} | {report_time_stop} | {HOST_NAME} - {IP_ADDRESS} | {key} | Error | {failed_send_autoreply} | \n')
-                                auto_reply_report.close()
-                                logger.info('Successfully write failed send auto reply message to txt file')
-                                print('Successfully write failed send auto reply message to txt file')
-
-                                data_report.clear()
-                                del time_start_autoreply, failed_send_autoreply, fail_auto_reply_file
-                                # skip current iteration
-                                continue
-
-                            time.sleep(5)
-                            # send message by press Enter
-                            logger.info('Trying to send auto reply message')
-                            print('Trying to send auto reply message')
-                            input_box.send_keys(Keys.ENTER)
-
-                            time_stop_autoreply = tools.get_datetime('%H:%M:%S')
-                            time.sleep(1)
-                            logger.info(f'Message auto_reply: {random_message}.')
-                            print(f'Message auto_reply: {random_message}.')
-
-                            try:
-                                success_send_autoreply = f'Successfully get data reply message from {key}'
-                                data_report.extend([report_time_start, time_stop_autoreply, key, 'Success', success_send_autoreply, random_message])
-
-                                # write success get data reply message to excel
-                                file_success = f'./report/reply_message/success/send_auto_reply_message_{current_date}.xlsx'
-                                insert_excel(data_report, file_success)
-                                logger.info('Successfully write success send auto reply message to excel')
-                                print('Successfully write success send auto reply message to excel')
-
-                                # write data auto reply message to txt file
-                                auto_reply_report = f'./report/reply_message/success/send_auto_reply_message_{current_date}.txt'
-                                auto_reply_report_folder = Folder.is_exists(auto_reply_report)
-                                if not auto_reply_report_folder:
-                                    logger.info('Create folder for success send auto reply message')
-                                    print('Create folder for success send auto reply message')
-                                    Folder.mkdir(auto_reply_report)
-
-                                auto_reply_report = open(auto_reply_report, 'a')  # append mode
-                                auto_reply_report.write(f'{data_report[0]} | {time_start_autoreply} | {time_stop_autoreply} | {HOST_NAME} - {IP_ADDRESS} | {key} | Success | {success_send_autoreply} | {random_message}\n')
-                                auto_reply_report.close()
-                                logger.info('Successfully write success send auto reply message to txt file')
-                                print('Successfully write success send auto reply message to txt file')
-                                
-                                logger.info(f'Changing phone {key} to read')
-                                dict_of_phone[key] = 'read'
-                            except Exception as e:
-                                logger.error('Error when program to write success send auto reply message. Error: {e}'.format(e=e))
-                                logger.error(traceback.format_exc())
-                                print(e)
-                                continue
-
-                        time.sleep(random.randint(5, 8))
-
-                        # clear chat
-                        # clear_chat(browser)
-                        data_report.clear()
-                    except:
-                        logger.error('Failed to get unread message. Error: {e}'.format(e=e))
-
-        except Exception as e:
-            logger.error('Failed to get data reply message. Error: {e}'.format(e=e))
-            logger.error(traceback.format_exc())
-            print('Failed to get data reply message')
-
-            logger.info('Trying to stop the program')
-            print('Trying to stop the program')
-            sys.tracebacklimit = 0
-            sys.exit(1)
-
-        print(f'\nFinish checking reply message {type_log_msg}')
-        logger.info(f'Finish checking reply message {type_log_msg}')                
-    
-
 @csrf_exempt
 def bulk_send_v3(request):
     if request.method == 'POST':
@@ -3726,9 +3489,8 @@ def bulk_send_v3(request):
         random_seed = int(datetime.now().timestamp())
         random.seed(random_seed)
         logger.info(f'Using Random Seed {random_seed}')
-        phone_sent = {}
         for chunk in files:
-            for index, row in chunk.iterrows():               
+            for index, row in chunk.iterrows():
                 phone = row['phone']
                 data_report = tools.get_datetime('%Y-%m-%d')
                 time_start = time.perf_counter()
@@ -3946,7 +3708,6 @@ def bulk_send_v3(request):
                                 if ((idx+1) % stoppage_line) == 0:
                                     time.sleep(random.randint(5, 10))
                                 input_box.send_keys(word)
-                                time.sleep(1)
                             #input_box.send_keys(line)
                             time.sleep(1)
                             input_box.send_keys(Keys.SHIFT, Keys.ENTER)
@@ -4077,12 +3838,10 @@ def bulk_send_v3(request):
 
                 # if success sending message, start checking reply message in interval message
                 if is_success:
-                    phone_sent[phone_number] = 'unread'
                     message_counter += 1
                     if check_reply_interval and message_counter % check_reply_interval == 0:
                         # start checking reply message in interval message
-                        # auto_reply_message(browser, input_data, auto_reply_conf=is_auto_reply, type_log_msg='in interval message')
-                        auto_reply_message_v2(browser, input_data, phone_sent, auto_reply_conf=is_auto_reply, type_log_msg='in interval message')
+                        auto_reply_message(browser, input_data, auto_reply_conf=is_auto_reply, type_log_msg='in interval message')
 
                 # set interval time after reaching of total messages
                 if index % total_message == 0 and index > 0:
@@ -4165,8 +3924,7 @@ def bulk_send_v3(request):
 
                 # del is_success, threads
 
-        #auto_reply_message(browser, input_data, auto_reply_conf=is_auto_reply, type_log_msg='after blast')
-        auto_reply_message_v2(browser, input_data, phone_sent, auto_reply_conf=is_auto_reply, type_log_msg='after blast')
+        auto_reply_message(browser, input_data, auto_reply_conf=is_auto_reply, type_log_msg='after blast')
 
         # Upload report to server
         thread = Thread(target=sync_report)
@@ -4496,7 +4254,6 @@ def dialogue_v3(browser, file_path, start_interval, end_interval, timeout, event
                         if ((idx+1) % stoppage_line) == 0:
                             time.sleep(random.randint(5, 10))
                         input_box.send_keys(word)
-                        time.sleep(1)
                     #input_box.send_keys(line)
                     time.sleep(1)
                     input_box.send_keys(Keys.SHIFT, Keys.ENTER)
