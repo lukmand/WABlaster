@@ -3206,7 +3206,7 @@ def dialogue_v2(browser, file_path, start_interval, end_interval, timeout, event
     print(f'\nProcessing {chat_type} is done\n')
     logger.info(f'Processing {chat_type} is done')
 
-def auto_reply_message_v2(browser, input_data, dict_of_phone, auto_reply_conf=is_auto_reply, type_log_msg='in interval message'):
+def auto_reply_message_v2(browser, input_data, dict_of_phone, auto_reply_conf, type_log_msg='in interval message'):
 
     if auto_reply_conf:
     
