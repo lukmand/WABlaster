@@ -1877,7 +1877,8 @@ def get_data_reply_message(browser):
 
         if text_message:
             message_obj['message'] = text_message
-            if text_message.lower().strip().replace('\n', '') in ['yes', 'ya', 'setuju', 'ok', 'boleh']:
+            #if text_message.lower().strip().replace('\n', '') in ['yes', 'ya', 'setuju', 'ok', 'boleh']:
+            if message_obj['message'] != '':
                 response = True
                 logger.info('Message match with response format. Will try to send reply.')
             else:
@@ -3682,7 +3683,7 @@ def bulk_send_v3(request):
         print('Trying to read input file for auto reply')
         input_data = pd.read_csv(auto_reply_file, header=None, names=['message']) if auto_reply_file else None
         
-        auto_reply_message(browser, input_data, auto_reply_conf=is_auto_reply, type_log_msg='before start blast')
+        #auto_reply_message(browser, input_data, auto_reply_conf=is_auto_reply, type_log_msg='before start blast')
 
         df_message = pd.read_csv(message_file, header=None)
         df_opening_decorator = pd.read_csv(opening_decorator_file, header=None) if opening_decorator_file else None
