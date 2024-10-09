@@ -3890,16 +3890,16 @@ def bulk_send_v3(request):
                 # get next message
                 loopevery = 20
                 if index % loopevery == 0:
-                    opening_decorator = random.randint(1, df_opening_decorator.shape[0])
-                    opening_message = random.randint(1, df_opening_message.shape[0])
-                    message = random.randint(1, df_message.shape[0])
-                    closing_message = random.randint(1, df_closing_message.shape[0])
-                    closing_decorator = random.randint(1, df_closing_decorator.shape[0])
+                    opening_decorator_idx = random.randint(1, df_opening_decorator.shape[0]) if opening_decorator_file is not None else 0
+                    opening_msg_idx = random.randint(1, df_opening_message.shape[0]) if opening_message_file is not None else 0
+                    message_index = random.randint(1, df_message.shape[0]) if message_file is not None else 0
+                    closing_msg_idx = random.randint(1, df_closing_message.shape[0]) if closing_message_file is not None else 0
+                    closing_decorator_idx = random.randint(1, df_closing_decorator.shape[0]) if closing_decorator_file is not None else 0
                 
-                if index + 1 > 1 and total_message > 0:
-                    message_index = message_index + 1
+                if index + 1 > 1 and total_message > 0:        
                     opening_decorator_idx = opening_decorator_idx + 1
                     opening_msg_idx = opening_msg_idx + 1
+                    message_index = message_index + 1
                     closing_msg_idx = closing_msg_idx + 1
                     closing_decorator_idx = closing_decorator_idx + 1
 
