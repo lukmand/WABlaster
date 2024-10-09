@@ -3890,9 +3890,9 @@ def bulk_send_v3(request):
                 # get next message
                 loopevery = 20
                 if index % loopevery == 0:
-                    opening_decorator_idx = random.randint(1, df_opening_decorator.shape[0])
+                    opening_decorator = random.randint(1, df_opening_decorator.shape[0])
                     opening_message = random.randint(1, df_opening_message.shape[0])
-                    message_index = random.randint(1, df_message.shape[0])
+                    message = random.randint(1, df_message.shape[0])
                     closing_message = random.randint(1, df_closing_message.shape[0])
                     closing_decorator = random.randint(1, df_closing_decorator.shape[0])
                 
