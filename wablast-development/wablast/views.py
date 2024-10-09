@@ -4236,7 +4236,7 @@ def dialogue_v3(browser, file_path, start_interval, end_interval, timeout, event
             file.write('')
 
     # Shuffle the DataFrame
-    num_rows = random.randint(1, 3)
+    num_rows = random.randint(1, 2)
     random_df = new_df.sample(n=num_rows).reset_index(drop=True)
     
     # Sequential the DataFrame
