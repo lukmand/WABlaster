@@ -3938,6 +3938,7 @@ def bulk_send_v3(request):
                         # find text input box
                         logger.info('Trying to find text input box')
                         print('----| Trying to find text input box')
+                        time.sleep(10)
                         input_box = WebDriverWait(browser, 120).until(
                             EC.presence_of_element_located((By.CSS_SELECTOR, Selectors.MESSAGE_BOX))
                         )
