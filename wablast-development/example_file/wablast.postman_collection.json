@@ -326,9 +326,15 @@
 							"type": "text"
 						},
 						{
-							"key": "total_message_interval",
-							"value": "400",
-							"description": "Total limit blast message",
+							"key": "total_message_interval_min",
+							"value": "10",
+							"description": "Total min limit blast message",
+							"type": "text"
+						},
+						{
+							"key": "total_message_interval_max",
+							"value": "20",
+							"description": "Total max limit blast message",
 							"type": "text"
 						},
 						{
