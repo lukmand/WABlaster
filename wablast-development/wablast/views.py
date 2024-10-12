@@ -3604,12 +3604,19 @@ def bulk_send_v3(request):
             soceng_end_interval = int(soceng_end)
 
         # default total message of interval is 400
-        total_message = int(os.getenv('DEFAULT_TOTAL_MESSAGE', '400'))
-        message_count = data.get('total_message_interval', '')
-        message_count = message_count.strip()
-        if message_count:
-            total_message = int(message_count)
-
+        total_message_min = int(os.getenv('DEFAULT_TOTAL_MESSAGE_MIN', '10'))
+        message_count_min = data.get('total_message_interval_min', '')
+        message_count_min = message_count_min.strip()
+        if message_count_min:
+            total_message_min = int(message_count_min)
+            
+        # default total message of interval is 400
+        total_message_max = int(os.getenv('DEFAULT_TOTAL_MESSAGE_MAX', '20'))
+        message_count_max = data.get('total_message_interval_max', '')
+        message_count_max = message_count_max.strip()
+        if message_count_max:
+            total_message_max = int(message_count_max)
+        
         # default timeout is 30s
         timeout = int(os.getenv('DEFAULT_TIMEOUT', '30'))
         timeout_interval = data.get('timeout', '')
@@ -3663,7 +3670,7 @@ def bulk_send_v3(request):
         logger.info(f"""start_interval: {start_interval}, end_interval: {end_interval},
                     soceng_start_interval: {soceng_start_interval}, soceng_end_interval: {soceng_end_interval},
                     dialogue_start_interval: {dialogue_start_interval}, dialogue_end_interval: {dialogue_end_interval},
-                    total_message: {total_message}, timeout: {timeout}, total_message_limit: {random_message_limit}
+                    total_message_min: {total_message_min}, total_message_max: {total_message_max}, timeout: {timeout}, total_message_limit: {random_message_limit}
                     send_soceng_message: {send_soceng_message}, send_dialogue_message: {send_dialogue_message}""")
 
         is_auto_reply = data.get('is_auto_reply', '')
@@ -3732,8 +3739,11 @@ def bulk_send_v3(request):
         random.seed(random_seed)
         logger.info(f'Using Random Seed {random_seed}')
         phone_sent = {}
+        cnt = 0
         for chunk in files:
-            for index, row in chunk.iterrows():               
+            for index, row in chunk.iterrows():   
+                cnt += 1
+                total_message = random.randint(total_message_interval_min, total_message_interval_max)
                 phone = row['phone']
                 data_report = tools.get_datetime('%Y-%m-%d')
                 time_start = time.perf_counter()
@@ -4091,7 +4101,7 @@ def bulk_send_v3(request):
                         auto_reply_message_v2(browser, input_data, phone_sent, auto_reply_conf=is_auto_reply, type_log_msg='in interval message')
 
                 # set interval time after reaching of total messages
-                if index % total_message == 0 and index > 0:
+                if cnt % total_message == 0 and index > 0 and cnt > 0:
                     # delete the group chat before the social engineering process program begins
                     # logger.info('Delete group chat before the dialogue process program begins')
                     # print('----| Delete group chat before the dialogue process program begins')
@@ -4124,6 +4134,7 @@ def bulk_send_v3(request):
                     print('\n\n')
                     for _ in countdown(items, prefix = 'Next blast message in:'):
                         time.sleep(1)
+                    cnt = 0
 
                     if send_dialogue_message:
                         # stop dialogue chat when no interval blast message
