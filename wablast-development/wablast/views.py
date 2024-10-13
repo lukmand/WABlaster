@@ -3743,7 +3743,7 @@ def bulk_send_v3(request):
         for chunk in files:
             for index, row in chunk.iterrows():   
                 cnt += 1
-                total_message = random.randint(total_message_interval_min, total_message_interval_max)
+                total_message = random.randint(total_message_min, total_message_max)
                 phone = row['phone']
                 data_report = tools.get_datetime('%Y-%m-%d')
                 time_start = time.perf_counter()
