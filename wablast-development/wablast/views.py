@@ -3728,7 +3728,7 @@ def bulk_send_v3(request):
             refresh_count = int(os.getenv('REFRESH_BROWSER_COUNT', '100'))
 
         # maximum retries
-        max_retries = 3
+        max_retries = 1
 
         logger.info(f'auto_reply_check_interval: {check_reply_interval}, refresh_browser_count: {refresh_count}, is_auto_reply: {is_auto_reply}')
 
