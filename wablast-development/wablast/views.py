@@ -3740,10 +3740,13 @@ def bulk_send_v3(request):
         logger.info(f'Using Random Seed {random_seed}')
         phone_sent = {}
         cnt = 0
-        for chunk in files:
-            for index, row in chunk.iterrows():   
-                cnt += 1
-                total_message = random.randint(total_message_min, total_message_max)
+        total_message = 0
+        for chunk in files:          
+            for index, row in chunk.iterrows():
+                if cnt == 0:
+                    total_message = random.randint(total_message_min, total_message_max)
+                    logger.info(f'Random Total Message: {total_message}')
+                cnt += 1     
                 phone = row['phone']
                 data_report = tools.get_datetime('%Y-%m-%d')
                 time_start = time.perf_counter()
@@ -4108,6 +4111,7 @@ def bulk_send_v3(request):
                         auto_reply_message_v2(browser, input_data, phone_sent, auto_reply_conf=is_auto_reply, type_log_msg='in interval message')
 
                 # set interval time after reaching of total messages
+                logger.info(f'Now at Message {cnt} out of {total_message} before ngasoh')
                 if cnt % total_message == 0 and index > 0 and cnt > 0:
                     # delete the group chat before the social engineering process program begins
                     # logger.info('Delete group chat before the dialogue process program begins')
@@ -4139,7 +4143,7 @@ def bulk_send_v3(request):
                             sys.exit(0)
 
                     print('\n\n')
-                    logger.info(f'Start ngasoh in {datetime.now().timestamp()}')
+                    logger.info(f'Start ngasoh at {datetime.now().timestamp()}')
                     for _ in countdown(items, prefix = 'Next blast message in:'):
                         time.sleep(1)
                     cnt = 0
