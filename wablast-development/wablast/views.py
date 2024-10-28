@@ -3928,12 +3928,19 @@ def bulk_send_v3(request):
 
                 if closing_decorator_idx >= total_row_closing_decorator:
                     closing_decorator_idx = 0
+                    
 
                 opening_decorator = df_opening_decorator[0][opening_decorator_idx] if opening_decorator_file is not None else ''
                 opening_message = df_opening_message[0][opening_msg_idx] if opening_message_file is not None else ''
                 message = df_message[0][message_index] if message_file is not None else ''
                 closing_message = df_closing_message[0][closing_msg_idx] if closing_message_file is not None else ''
                 closing_decorator = df_closing_decorator[0][closing_decorator_idx] if closing_decorator_file is not None else ''
+                
+                logger.info(f'Selecting opening_decorator_idx {opening_decorator_idx}, message: {opening_decorator}')
+                logger.info(f'Selecting opening_message_idx {opening_msg_idx}, message: {opening_message}')
+                logger.info(f'Selecting message {message_index}, message: {message}')
+                logger.info(f'Selecting closing_message {closing_msg_idx}, message: {closing_message}')
+                logger.info(f'Selecting closing_decorator_idx {closing_decorator_idx}, message: {closing_decorator}')
 
                 # Remove empty string from the list
                 list_message = [opening_decorator, opening_message, message, closing_message, closing_decorator]
@@ -4132,6 +4139,7 @@ def bulk_send_v3(request):
                             sys.exit(0)
 
                     print('\n\n')
+                    logger.info(f'Start ngasoh in {datetime.now().timestamp()}')
                     for _ in countdown(items, prefix = 'Next blast message in:'):
                         time.sleep(1)
                     cnt = 0
