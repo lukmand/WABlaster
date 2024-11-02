@@ -4147,6 +4147,8 @@ def bulk_send_v3(request):
                     for _ in countdown(items, prefix = 'Next blast message in:'):
                         time.sleep(1)
                     cnt = 0
+                    
+                    logger.info(f'Finish ngasoh at {datetime.now().timestamp()}')
 
                     if send_dialogue_message:
                         # stop dialogue chat when no interval blast message
