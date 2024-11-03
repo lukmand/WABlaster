@@ -4112,7 +4112,7 @@ def bulk_send_v3(request):
 
                 # set interval time after reaching of total messages
                 logger.info(f'Now at Message {cnt} out of {total_message} before ngasoh')
-                if cnt % total_message == 0 and index > 0 and cnt > 0:
+                if cnt % total_message == 0:
                     # delete the group chat before the social engineering process program begins
                     # logger.info('Delete group chat before the dialogue process program begins')
                     # print('----| Delete group chat before the dialogue process program begins')
@@ -4146,14 +4146,16 @@ def bulk_send_v3(request):
                     
                     close_tab = random.randint(0, 1)
                     
-                    logger.info(f'Program decided to close the tab')
-                    if close_tab == 1:
                     
+                    if close_tab == 1:
+                        logger.info(f'Program decided to close the tab')
                         logger.info(f'Closing Tab')
                         time.sleep(10)
                         print('tab closing')
                         Browser.close_tab(browser)
                         logger.info(f'Start Counting')
+                    else:
+                        logger.info(f'Program decided not to close the tab')
                     
                     logger.info(f'Start ngasoh at {datetime.now().timestamp()}')
                     for _ in countdown(items, prefix = 'Next blast message in:'):
