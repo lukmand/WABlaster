@@ -60,8 +60,8 @@ def create_instance(request):
     chrome_options = Options()
     chrome_options.add_argument("start-maximized")
     # user_data_dir = ''.join(random.choices(string.ascii_letters, k=8))
-    #user_data_dir = 'cache123'
-    #chrome_options.add_argument("--user-data-dir=/tmp/chrome-data/" + user_data_dir)
+    user_data_dir = 'cache123'
+    chrome_options.add_argument("--user-data-dir=/tmp/chrome-data/" + user_data_dir)
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-blink-features=AutomationControlled")
