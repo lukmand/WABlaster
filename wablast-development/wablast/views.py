@@ -4466,7 +4466,7 @@ def dialogue_v3(browser, file_path, start_interval, end_interval, timeout, event
                 event.set()
                 sys.exit(1)
 
-        time.sleep(random.randint(4, 7))
+        time.sleep(random.randint(6, 9))
         is_success = True
         # Check conversation header to identify phone number is valid
         try:
