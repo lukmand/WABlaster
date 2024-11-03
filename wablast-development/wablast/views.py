@@ -60,8 +60,8 @@ def create_instance(request):
     chrome_options = Options()
     chrome_options.add_argument("start-maximized")
     # user_data_dir = ''.join(random.choices(string.ascii_letters, k=8))
-    user_data_dir = 'cache123'
-    chrome_options.add_argument("--user-data-dir=/tmp/chrome-data/" + user_data_dir)
+    #user_data_dir = 'cache123'
+    #chrome_options.add_argument("--user-data-dir=/tmp/chrome-data/" + user_data_dir)
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-blink-features=AutomationControlled")
@@ -4466,7 +4466,7 @@ def dialogue_v3(browser, file_path, start_interval, end_interval, timeout, event
                 event.set()
                 sys.exit(1)
 
-        time.sleep(random.randint(6, 9))
+        time.sleep(random.randint(4, 7))
         is_success = True
         # Check conversation header to identify phone number is valid
         try:
@@ -4474,6 +4474,10 @@ def dialogue_v3(browser, file_path, start_interval, end_interval, timeout, event
             logger.info(f'This WhatsApp web uses language: {lang_element}')
             conv_header = Selectors.CONVERSATION_HEADER_ID if lang_element == 'id' else Selectors.CONVERSATION_HEADER
 
+            WebDriverWait(browser, 120).until(lambda driver: (
+                element_exists(browser, By.CSS_SELECTOR, conv_header)
+            ))
+            time.sleep(2)
             logger.info(f'Trying to check conversation header')
             print(f'----| Trying to check conversation header')
             browser.find_element(By.CSS_SELECTOR, conv_header)
