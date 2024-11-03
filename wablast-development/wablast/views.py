@@ -3437,9 +3437,39 @@ def auto_reply_message_v2(browser, input_data, dict_of_phone, auto_reply_conf, t
 
 @csrf_exempt
 def bulk_send_v3(request):
-    if request.method == 'POST':
+    if request.method == 'POST': 
         data = request.POST
         files = request.FILES
+        
+        instance = data.get('instance', '')
+        instance = instance.strip()
+        if not instance:
+            logger.warning('Instance browser is empty.')
+            print('No instance found')
+
+            del instance
+
+            return HttpResponse(
+                json.dumps({
+                    'status': 'error',
+                    'message': 'Instance is required'
+                }), headers=headers, status=400
+            )
+        
+        # get driver browser from instance id
+        browser = active_sessions.get(instance, None)
+        if not browser:
+            logger.error(f'No active instance browser {instance} found.')
+            print('No active instance found')
+
+            del browser
+
+            return HttpResponse(
+                json.dumps({
+                    'status': 'error',
+                    'message': f'No active instance with instance id {instance} found'.format(instance=instance)
+                }), headers=headers, status=400
+            )
 
         required_files = ['phone_list_file', 'dialogue_file', 'soceng_file', 'message_file', 'opening_decorator', 'opening_message', 'closing_message', 'closing_decorator']
         optional_files = ['auto_reply_file']
@@ -3530,36 +3560,6 @@ def bulk_send_v3(request):
             logger.warning('Dialogue file is empty')
             print('Dialogue file is empty')
             dialogue_file = None
-
-        instance = data.get('instance', '')
-        instance = instance.strip()
-        if not instance:
-            logger.warning('Instance browser is empty.')
-            print('No instance found')
-
-            del instance
-
-            return HttpResponse(
-                json.dumps({
-                    'status': 'error',
-                    'message': 'Instance is required'
-                }), headers=headers, status=400
-            )
-
-        # get driver browser from instance id
-        browser = active_sessions.get(instance, None)
-        if not browser:
-            logger.error(f'No active instance browser {instance} found.')
-            print('No active instance found')
-
-            del browser
-
-            return HttpResponse(
-                json.dumps({
-                    'status': 'error',
-                    'message': f'No active instance with instance id {instance} found'.format(instance=instance)
-                }), headers=headers, status=400
-            )
 
         # default start interval random value is 10800s (3h)
         start_interval = int(os.getenv('START_INTERVAL', '10800'))
@@ -4143,12 +4143,32 @@ def bulk_send_v3(request):
                             sys.exit(0)
 
                     print('\n\n')
+                    
+                    close_tab = random.randint(0, 1)
+                    
+                    logger.info(f'Program decided to close the tab')
+                    if close_tab == 1:
+                    
+                        logger.info(f'Closing Tab')
+                        time.sleep(10)
+                        print('tab closing')
+                        Browser.close_tab(browser)
+                        logger.info(f'Start Counting')
+                    
                     logger.info(f'Start ngasoh at {datetime.now().timestamp()}')
                     for _ in countdown(items, prefix = 'Next blast message in:'):
                         time.sleep(1)
                     cnt = 0
                     
                     logger.info(f'Finish ngasoh at {datetime.now().timestamp()}')
+                    
+                    if close_tab == 1:
+                        print('tab opening')
+                        Browser.new_tab(browser)
+                        browser.get(BASE_URL)
+                        
+                        time.sleep(15)
+                        print('tab should be open now')
 
                     if send_dialogue_message:
                         # stop dialogue chat when no interval blast message
