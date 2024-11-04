@@ -3623,6 +3623,19 @@ def bulk_send_v3(request):
         timeout_interval = timeout_interval.strip()
         if timeout_interval:
             timeout = int(timeout_interval)
+            
+        close_tab_min = int(os.getenv('DEFAULT_CLOSE_TAB_MIN', '0'))
+        close_tab_min_req = data.get('close_tab_min', '')
+        close_tab_min_req = close_tab_min_req.strip()
+        if close_tab_min_req:
+            close_tab_min = int(close_tab_min_req)
+          
+        close_tab_max = int(os.getenv('DEFAULT_CLOSE_TAB_MAX', '1'))
+        close_tab_max_req = data.get('close_tab_max', '')
+        close_tab_max_req = close_tab_max_req.strip()
+        if close_tab_max_req:
+            close_tab_max = int(close_tab_max_req)
+        
 
         browser.switch_to.window(browser.window_handles[0])
         handles = browser.window_handles
@@ -4144,8 +4157,8 @@ def bulk_send_v3(request):
 
                     print('\n\n')
                     
-                    close_tab = random.randint(0, 1)
-                    
+                    close_tab = random.randint(close_tab_min, close_tab_max)
+                    logger.info(f'Result close_tab variable: {close_tab}')
                     
                     if close_tab == 1:
                         logger.info(f'Program decided to close the tab')
