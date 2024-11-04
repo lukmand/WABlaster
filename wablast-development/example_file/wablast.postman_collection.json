@@ -338,6 +338,18 @@
 							"type": "text"
 						},
 						{
+							"key": "close_tab_min",
+							"value": "0",
+							"description": "Minimum chance to close tab during ngasoh",
+							"type": "text"
+						},
+						{
+							"key": "close_tab_max",
+							"value": "1",
+							"description": "Maximum chance to close tab during ngasoh",
+							"type": "text"
+						},
+						{
 							"key": "dialogue_file",
 							"description": "Interaction chat text file",
 							"type": "file",
